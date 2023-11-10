@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="./node_modules/tinygallery/dist/tinygallery.min.css"
+    />
+  </head>
+  <body>
+    <div class="tinygallery" id="my_main_gallery"></div>
+  </body>
+  <script src="./node_modules/tinygallery/dist/tinygallery.min.js"></script>
+  <script>
+    const npmGallery = document.querySelector('.tinygallery');
+    let image;
+    fetch(
+      `https://api.unsplash.com/photos/?client_id=nOrQIKqxXzg0DwIf671XrcFrWu8VjKwXS1j6dhtiI5Y`
+    )
+      .then((response) => response.json())
+      .then((imageUrls) => {
+        console.log(imageUrls);
+        for (imageUrl of imageUrls) {
+          image = imageUrl.urls.regular;
+          const link = document.createElement('a');
+          link.href = image;
+          const imageNpm = document.createElement('img');
+          imageNpm.src = image;
+          npmGallery.appendChild(link);
+          link.appendChild(imageNpm);
+        }
+        const my_gallery = new TinyGallery('my_main_gallery');
+        my_gallery.init();
+      });
+  </script>
+</html>
