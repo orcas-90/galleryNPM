@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "http-server ./src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,5 +13,8 @@
   "dependencies": {
     "tinygallery": "^1.1.8",
     "vanilla-justified-gallery": "^1.0.5"
+  },
+  "devDependencies": {
+    "http-server": "14.1.1"
   }
 }
